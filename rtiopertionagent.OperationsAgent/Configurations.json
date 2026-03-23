@@ -1,0 +1,165 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/operationsAgents/definition/1.0.0/schema.json",
+  "configuration": {
+    "goals": "You are an agent tracking sales activity for an online retailers and need to monitor Customer Satisfaction and Customer sales agent \nThe overall goal is to monitor orders that was paid for and Lost and orders that the customer satisfaction is less than 1\nWe want to encourage Sales and Merchant Managers to monitor customer satisfaction and reach out to customers with low satisfaction score and lost orders ",
+    "instructions": "You need to monitor the data in in the RTIDemoEventHouse and notice when a customersatifaction is less than 1 and the status for orders that are lost \nUse the Order status to identify order that are loss , calculate the amount paid and suggest a offer of refund for that amount ",
+    "dataSources": {
+      "9e9aa75f-f43c-b8d6-4619-a3f6bf2130fc": {
+        "id": "9e9aa75f-f43c-b8d6-4619-a3f6bf2130fc",
+        "type": "KustoDatabase",
+        "workspaceId": "00000000-0000-0000-0000-000000000000"
+      }
+    },
+    "actions": {
+      "b1d14342-4850-49c1-9c94-f8db70fccd35": {
+        "id": "b1d14342-4850-49c1-9c94-f8db70fccd35",
+        "displayName": "SalesAnomalities",
+        "description": "SalesAnamality in Shops",
+        "kind": "PowerAutomateAction",
+        "parameters": []
+      }
+    }
+  },
+  "playbook": {
+    "OntologyDefinitions": {
+      "Customer": {
+        "$type": "class",
+        "IRI": "Customer",
+        "DocumentId": "",
+        "Name": "Customer",
+        "Description": "An individual or entity that places orders, associated with customer events but may lack a unique identifier in the data source.",
+        "DataLink": {
+          "$type": "kustotable",
+          "TableName": "CustomerEvents"
+        }
+      },
+      "status": {
+        "$type": "data",
+        "IRI": "status",
+        "DocumentId": "",
+        "Name": "status",
+        "Description": "The status of the order.",
+        "DomainClassIRI": "Order",
+        "RangeDataType": "string",
+        "Kind": 1,
+        "DataLink": {
+          "$type": "kustotablecol",
+          "ColumnName": "status"
+        }
+      },
+      "placedBy": {
+        "$type": "object",
+        "IRI": "placedBy",
+        "DocumentId": "",
+        "Name": "placedBy",
+        "Description": "The relationship indicating which customer placed the order.",
+        "DomainClassIRI": "Order",
+        "RangeClassIRI": "Customer",
+        "DataLink": {
+          "$type": "objectpropertyrangekey",
+          "DataPropertyIRI": "customerId"
+        }
+      },
+      "orderId": {
+        "$type": "data",
+        "IRI": "orderId",
+        "DocumentId": "",
+        "Name": "orderId",
+        "Description": "The identifier for the order.",
+        "DomainClassIRI": "Order",
+        "RangeDataType": "string",
+        "Kind": 0,
+        "DataLink": {
+          "$type": "kustotablecol",
+          "ColumnName": "orderId"
+        }
+      },
+      "Order": {
+        "$type": "class",
+        "IRI": "Order",
+        "DocumentId": "",
+        "Name": "Order",
+        "Description": "A purchase or transaction event associated with a customer, identifiable by orderId.",
+        "DataLink": {
+          "$type": "kustotable",
+          "TableName": "CustomerEvents"
+        }
+      },
+      "customerSatisfactionScore": {
+        "$type": "data",
+        "IRI": "customerSatisfactionScore",
+        "DocumentId": "",
+        "Name": "customerSatisfactionScore",
+        "Description": "The customer satisfaction score for the order.",
+        "DomainClassIRI": "Order",
+        "RangeDataType": "integer",
+        "Kind": 1,
+        "DataLink": {
+          "$type": "kustotablecol",
+          "ColumnName": "customerSatisfaction"
+        }
+      },
+      "amountPaid": {
+        "$type": "data",
+        "IRI": "amountPaid",
+        "DocumentId": "",
+        "Name": "amountPaid",
+        "Description": "The amount paid for the order.",
+        "DomainClassIRI": "Order",
+        "RangeDataType": "decimal",
+        "Kind": 1,
+        "DataLink": {
+          "$type": "kustotablecol",
+          "ColumnName": "amount"
+        }
+      }
+    },
+    "RuleDefinitions": {
+      "7e2a1b1e-8c1c-4e3e-9f7d-2f6e3c7a9b2d": {
+        "Id": "7e2a1b1e-8c1c-4e3e-9f7d-2f6e3c7a9b2d",
+        "Name": "Order Status Change to Lost",
+        "Description": "Monitor all orders and trigger an action when the order status changes to \u0027Lost\u0027. When this occurs, execute the \u0027SalesAnomalities\u0027 action.",
+        "ClassExpression": {
+          "$type": "manchesterclassexp",
+          "Expression": "ClassExpression: AllOrders \u0060\u0060\u0060 Order \u0060\u0060\u0060 Annotations: metadata:description \u0022All orders in the system for monitoring status changes to \u0027Lost\u0027\u0022",
+          "Description": "All orders in the system for monitoring status changes to \u0027Lost\u0027"
+        },
+        "RuleCondition": {
+          "$type": "textchangechangesto",
+          "DataPropertyName": "status",
+          "ToValue": "Lost"
+        },
+        "ActionBinding": {
+          "$type": "actionbinding",
+          "Name": "SalesAnomalities",
+          "Description": "SalesAnamality in Shops",
+          "ActionId": "b1d14342-4850-49c1-9c94-f8db70fccd35",
+          "ParameterBindings": []
+        }
+      },
+      "e4c7b2a6-3b8e-4e2a-9c7e-1a2b3c4d5e6f": {
+        "Id": "e4c7b2a6-3b8e-4e2a-9c7e-1a2b3c4d5e6f",
+        "Name": "Orders with Low Customer Satisfaction",
+        "Description": "Monitor all Order entities where the customerSatisfactionScore is below 1. When such an order is detected, trigger the SalesAnomalities action.",
+        "ClassExpression": {
+          "$type": "manchesterclassexp",
+          "Expression": "ClassExpression: OrdersWithLowSatisfaction \u0060\u0060\u0060 Order that customerSatisfactionScore some (integer [\u0027\u003C\u0027 1]) \u0060\u0060\u0060 Annotations: metadata:description \u0022Orders with customer satisfaction score less than 1 for outreach notification\u0022",
+          "Description": "Orders with customer satisfaction score less than 1"
+        },
+        "RuleCondition": {
+          "$type": "propertywhenisbelow",
+          "DataPropertyName": "customerSatisfactionScore",
+          "Threshold": 1
+        },
+        "ActionBinding": {
+          "$type": "actionbinding",
+          "Name": "SalesAnomalities",
+          "Description": "SalesAnamality in Shops",
+          "ActionId": "b1d14342-4850-49c1-9c94-f8db70fccd35",
+          "ParameterBindings": []
+        }
+      }
+    }
+  },
+  "shouldRun": true
+}

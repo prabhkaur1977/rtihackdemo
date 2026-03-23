@@ -1,0 +1,10 @@
+[
+  {
+    "uniqueIdentifier": "8ed7afd4-5cbf-40ad-9eb0-b067a983d49a",
+    "payload": {
+      "name": "SalesAnomalities",
+      "parameters": []
+    },
+    "type": "powerAutomateFlowAction-v1"
+  }
+]

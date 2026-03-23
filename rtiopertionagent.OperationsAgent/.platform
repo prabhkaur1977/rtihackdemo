@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "OperationsAgent",
+    "displayName": "rtiopertionagent"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "03539289-1ed8-9a2d-428e-62138ff9c04e"
+  }
+}
