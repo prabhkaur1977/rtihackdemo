@@ -1,0 +1,58 @@
+{
+  "sources": [
+    {
+      "id": "a22512d9-9e9e-4410-a38b-1cef2b52782c",
+      "name": "CustomEndpoint-Source",
+      "type": "CustomEndpoint",
+      "properties": {}
+    }
+  ],
+  "destinations": [
+    {
+      "id": "c0dbfa27-3bbc-4164-a49b-18d0614bf72e",
+      "name": "Eventhouse",
+      "type": "Eventhouse",
+      "properties": {
+        "dataIngestionMode": "ProcessedIngestion",
+        "workspaceId": "00000000-0000-0000-0000-000000000000",
+        "itemId": "9e9aa75f-f43c-b8d6-4619-a3f6bf2130fc",
+        "databaseName": "RTIDemoEventHouse",
+        "tableName": "CustomerEvents",
+        "inputSerialization": {
+          "type": "Json",
+          "properties": {
+            "encoding": "UTF8"
+          }
+        }
+      },
+      "inputNodes": [
+        {
+          "name": "RTIDemoEventStream-stream"
+        }
+      ],
+      "inputSchemas": [
+        {
+          "name": "RTIDemoEventStream-stream",
+          "schema": {
+            "columns": []
+          }
+        }
+      ]
+    }
+  ],
+  "streams": [
+    {
+      "id": "85593a9c-7e05-4c61-b7e8-20cd06a250c0",
+      "name": "RTIDemoEventStream-stream",
+      "type": "DefaultStream",
+      "properties": {},
+      "inputNodes": [
+        {
+          "name": "CustomEndpoint-Source"
+        }
+      ]
+    }
+  ],
+  "operators": [],
+  "compatibilityLevel": "1.1"
+}
