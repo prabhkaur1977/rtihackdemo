@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Reflex",
+    "displayName": "SendNewOrderActivator",
+    "description": "Activator: SendNewOrderActivator"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "05747b98-006e-a13e-431f-f62ec53d71cb"
+  }
+}
