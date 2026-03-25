@@ -1,0 +1,657 @@
+{
+  "schema_version": 69,
+  "title": "bf2130fc-a3f6-4619-b8d6-f43c9e9aa75f83726ffa-bf3d-4b96-99e0-fb4e3ba74346",
+  "tiles": [
+    {
+      "markdownText": "<!-- COPILOT_DASHBOARD_FEEDBACK -->\r\n## 🌟 Copilot Insights 🌟\r\nThis dashboard is based on Silver_CustomerEvents. It provides you with real-time insights and analytics powered by Copilot.\r\n### 📄 Documentation\r\nFor detailed information on how to create and customize real-time dashboards, read the [official documentation](https://go.microsoft.com/fwlink/?linkid=2280782).\r\n### ✏️ Customization\r\nYou can edit and personalize the dashboard to meet your needs. Explore the various options to enhance and tailor the analytics, such as turning on auto-refresh (under Settings) for a near real time experience.\r\n\r\nMake sure AI-generated content is accurate and appropriate before using [See terms](https://go.microsoft.com/fwlink/?linkid=2253132).",
+      "id": "8cda7ac3-58f9-4d3c-9560-79e499a60b81",
+      "title": "",
+      "visualType": "markdownCard",
+      "pageId": "b146093d-5e9f-4041-83d8-afb853d20cea",
+      "layout": {
+        "x": 0,
+        "y": 0,
+        "width": 20,
+        "height": 10
+      },
+      "description": "",
+      "visualOptions": {
+        "colorRules": [],
+        "colorRulesDisabled": true,
+        "crossFilterDisabled": false,
+        "drillthroughDisabled": false,
+        "crossFilter": [],
+        "drillthrough": [],
+        "table__renderLinks": []
+      }
+    },
+    {
+      "queryRef": {
+        "kind": "query",
+        "queryId": "c97c1311-1497-45d1-9a7f-b2b651e11a33"
+      },
+      "id": "a478885c-6ba2-48fe-bcc5-12c115bb9446",
+      "title": "Event Status Overview",
+      "visualType": "column",
+      "pageId": "b146093d-5e9f-4041-83d8-afb853d20cea",
+      "layout": {
+        "x": 0,
+        "y": 10,
+        "width": 10,
+        "height": 10
+      },
+      "description": "Visualize the total amount, quantity, and count of events grouped by their status to understand the distribution and performance of different event statuses.",
+      "visualOptions": {
+        "colorRules": [],
+        "colorRulesDisabled": true,
+        "crossFilterDisabled": false,
+        "drillthroughDisabled": false,
+        "crossFilter": [],
+        "drillthrough": [],
+        "table__renderLinks": [],
+        "selectedDataOnLoad": {
+          "all": true,
+          "limit": 10
+        },
+        "dataPointsTooltip": {
+          "all": false,
+          "limit": 1
+        }
+      }
+    },
+    {
+      "queryRef": {
+        "kind": "query",
+        "queryId": "ddc20211-fd31-440e-bfdc-a314693cddb5"
+      },
+      "id": "93e6907c-b520-463e-920f-5c17fce9a04e",
+      "title": "Customer Satisfaction by Payment Method",
+      "visualType": "table",
+      "pageId": "b146093d-5e9f-4041-83d8-afb853d20cea",
+      "layout": {
+        "x": 10,
+        "y": 10,
+        "width": 10,
+        "height": 10
+      },
+      "description": "Analyze average customer satisfaction and event count for each payment method to identify which payment options are associated with higher satisfaction.",
+      "visualOptions": {
+        "colorRules": [],
+        "colorRulesDisabled": true,
+        "crossFilterDisabled": false,
+        "drillthroughDisabled": false,
+        "crossFilter": [],
+        "drillthrough": [],
+        "table__renderLinks": []
+      }
+    },
+    {
+      "queryRef": {
+        "kind": "query",
+        "queryId": "27ef7d2f-c0aa-415d-9322-77603a1b756c"
+      },
+      "id": "1c69aa5b-71fe-4164-a629-bc6ee3d0b833",
+      "title": "Top Currencies by Transaction Amount",
+      "visualType": "column",
+      "pageId": "b146093d-5e9f-4041-83d8-afb853d20cea",
+      "layout": {
+        "x": 0,
+        "y": 20,
+        "width": 10,
+        "height": 10
+      },
+      "description": "Display the top 10 currencies by total transaction amount and event count to reveal which currencies are most frequently used and generate the highest value.",
+      "visualOptions": {
+        "colorRules": [],
+        "colorRulesDisabled": true,
+        "crossFilterDisabled": false,
+        "drillthroughDisabled": false,
+        "crossFilter": [],
+        "drillthrough": [],
+        "table__renderLinks": [],
+        "selectedDataOnLoad": {
+          "all": true,
+          "limit": 10
+        },
+        "dataPointsTooltip": {
+          "all": false,
+          "limit": 1
+        }
+      }
+    },
+    {
+      "queryRef": {
+        "kind": "query",
+        "queryId": "75976e21-d553-4973-9f22-6ec525812f87"
+      },
+      "id": "87c27c31-a5ef-4e4f-84da-b9237b1b28dc",
+      "title": "Weekly Trends of Amount and Quantity",
+      "visualType": "line",
+      "pageId": "b146093d-5e9f-4041-83d8-afb853d20cea",
+      "layout": {
+        "x": 10,
+        "y": 20,
+        "width": 10,
+        "height": 10
+      },
+      "description": "Track weekly trends in total transaction amount and quantity to monitor business activity and detect seasonal or periodic patterns.",
+      "visualOptions": {
+        "colorRules": [],
+        "colorRulesDisabled": true,
+        "crossFilterDisabled": false,
+        "drillthroughDisabled": false,
+        "crossFilter": [],
+        "drillthrough": [],
+        "table__renderLinks": [],
+        "selectedDataOnLoad": {
+          "all": true,
+          "limit": 10
+        },
+        "dataPointsTooltip": {
+          "all": false,
+          "limit": 1
+        }
+      }
+    },
+    {
+      "queryRef": {
+        "kind": "query",
+        "queryId": "ae6efa34-80ef-4f28-89cd-452767198be0"
+      },
+      "id": "10861057-9a29-45b2-9fde-d01d29314b4a",
+      "title": "Rows Histogram",
+      "visualType": "area",
+      "pageId": "238522ef-f33c-4ba3-8671-2a19fdb1e1c7",
+      "layout": {
+        "x": 0,
+        "y": 0,
+        "width": 23,
+        "height": 5
+      },
+      "description": "",
+      "visualOptions": {
+        "colorRules": [],
+        "colorRulesDisabled": true,
+        "crossFilterDisabled": false,
+        "drillthroughDisabled": false,
+        "crossFilter": [],
+        "drillthrough": [],
+        "table__renderLinks": [],
+        "selectedDataOnLoad": {
+          "all": true,
+          "limit": 10
+        },
+        "dataPointsTooltip": {
+          "all": false,
+          "limit": 1
+        }
+      }
+    },
+    {
+      "queryRef": {
+        "kind": "query",
+        "queryId": "e8ed6baf-c877-4914-96c6-6a45e5725645"
+      },
+      "id": "1c4ea1b7-fd41-4ceb-b14a-c665bc7adfb7",
+      "title": "Schema",
+      "visualType": "table",
+      "pageId": "238522ef-f33c-4ba3-8671-2a19fdb1e1c7",
+      "layout": {
+        "x": 0,
+        "y": 16,
+        "width": 5,
+        "height": 10
+      },
+      "description": "",
+      "visualOptions": {
+        "colorRules": [],
+        "colorRulesDisabled": true,
+        "crossFilterDisabled": false,
+        "drillthroughDisabled": false,
+        "crossFilter": [
+          {
+            "interaction": "column",
+            "property": "ColumnName",
+            "parameterId": "7048b2a2-8b9e-4098-bb4d-cad92e9cae24",
+            "disabled": false
+          }
+        ],
+        "drillthrough": [],
+        "table__renderLinks": []
+      }
+    },
+    {
+      "queryRef": {
+        "kind": "query",
+        "queryId": "5281e493-ba4a-43b5-bfcc-eaa33eace803"
+      },
+      "id": "e80f08a4-1935-40fb-8080-45951d6059a2",
+      "title": "Sample",
+      "visualType": "table",
+      "pageId": "238522ef-f33c-4ba3-8671-2a19fdb1e1c7",
+      "layout": {
+        "x": 0,
+        "y": 5,
+        "width": 23,
+        "height": 8
+      },
+      "description": "",
+      "visualOptions": {
+        "colorRules": [],
+        "colorRulesDisabled": true,
+        "crossFilterDisabled": false,
+        "drillthroughDisabled": false,
+        "crossFilter": [],
+        "drillthrough": [],
+        "table__renderLinks": []
+      }
+    },
+    {
+      "queryRef": {
+        "kind": "query",
+        "queryId": "ad53f537-caa3-4e2c-94de-41067ca12e36"
+      },
+      "id": "fd81286d-09dd-4b64-a6f1-9c2fec01c7b5",
+      "title": "Lowest-Highest",
+      "visualType": "table",
+      "pageId": "238522ef-f33c-4ba3-8671-2a19fdb1e1c7",
+      "layout": {
+        "x": 5,
+        "y": 16,
+        "width": 5,
+        "height": 10
+      },
+      "description": "",
+      "visualOptions": {
+        "colorRules": [],
+        "colorRulesDisabled": true,
+        "crossFilterDisabled": false,
+        "drillthroughDisabled": false,
+        "crossFilter": [],
+        "drillthrough": [],
+        "table__renderLinks": []
+      }
+    },
+    {
+      "queryRef": {
+        "kind": "query",
+        "queryId": "be47ae7f-83c6-41ab-9450-15826b900b68"
+      },
+      "id": "0e3504cf-19d2-429a-87af-ba02174c006d",
+      "title": "Unique Values",
+      "visualType": "table",
+      "pageId": "238522ef-f33c-4ba3-8671-2a19fdb1e1c7",
+      "layout": {
+        "x": 10,
+        "y": 16,
+        "width": 4,
+        "height": 10
+      },
+      "description": "",
+      "visualOptions": {
+        "colorRules": [],
+        "colorRulesDisabled": true,
+        "crossFilterDisabled": false,
+        "drillthroughDisabled": false,
+        "crossFilter": [],
+        "drillthrough": [],
+        "table__renderLinks": []
+      }
+    },
+    {
+      "queryRef": {
+        "kind": "query",
+        "queryId": "6d9c1a1c-04c3-447d-b86b-1e0660bfcb5e"
+      },
+      "id": "342cb545-0151-4bd4-b266-1efe2726f5e6",
+      "title": "Sample Values",
+      "visualType": "pie",
+      "pageId": "238522ef-f33c-4ba3-8671-2a19fdb1e1c7",
+      "layout": {
+        "x": 14,
+        "y": 16,
+        "width": 9,
+        "height": 10
+      },
+      "description": "",
+      "visualOptions": {
+        "colorRules": [],
+        "colorRulesDisabled": true,
+        "crossFilterDisabled": false,
+        "drillthroughDisabled": false,
+        "crossFilter": [],
+        "drillthrough": [],
+        "table__renderLinks": []
+      }
+    },
+    {
+      "markdownText": "---\r\n### 🛠️Use cross-filters to filter data across the following tiles. Select a column from the schema tile below, then right-click and select cross-filter. ###\r\n---",
+      "id": "7626f839-f2c9-4e89-a458-387a2033ded6",
+      "title": "",
+      "visualType": "markdownCard",
+      "pageId": "238522ef-f33c-4ba3-8671-2a19fdb1e1c7",
+      "layout": {
+        "x": 0,
+        "y": 13,
+        "width": 23,
+        "height": 3
+      },
+      "description": "",
+      "visualOptions": {
+        "colorRules": [],
+        "colorRulesDisabled": true,
+        "crossFilterDisabled": false,
+        "drillthroughDisabled": false,
+        "crossFilter": [],
+        "drillthrough": [],
+        "table__renderLinks": []
+      }
+    }
+  ],
+  "baseQueries": [
+    {
+      "id": "3f32e072-d335-4308-bfe1-7bdd1cc39a2c",
+      "queryId": "018c4009-7a46-4909-99dc-7d71484196f5",
+      "variableName": "_BaseTable"
+    },
+    {
+      "id": "bccad37a-0b4b-4a91-9f02-8c7bf2d1e2ea",
+      "queryId": "f6f29a3f-2de7-4229-beda-c6271cc4bfac",
+      "variableName": "_Base"
+    },
+    {
+      "id": "b8b928ee-f560-48a1-a085-4b29dac67c5e",
+      "queryId": "de54d064-f80a-4674-9aaa-369d05385f9a",
+      "variableName": "_Dates"
+    },
+    {
+      "id": "7924d732-e27a-4633-9751-d1939f9cf0a9",
+      "queryId": "012d56a8-5710-46e2-ac8b-07bf9d644b9f",
+      "variableName": "_schema"
+    }
+  ],
+  "dataSources": [
+    {
+      "kind": "kusto-trident",
+      "id": "e5d28373-a861-4a5b-a653-6fc42c3ec443",
+      "name": "https://trd-81qd1fbkan1mukejn5.z6.kusto.fabric.microsoft.com:bf2130fc-a3f6-4619-b8d6-f43c9e9aa75f",
+      "clusterUri": "",
+      "database": "9e9aa75f-f43c-b8d6-4619-a3f6bf2130fc",
+      "workspace": "00000000-0000-0000-0000-000000000000",
+      "scopeId": "kusto-trident"
+    }
+  ],
+  "parameters": [
+    {
+      "beginVariableName": "_startTime",
+      "endVariableName": "_endTime",
+      "kind": "duration",
+      "id": "ac8d1e91-dee2-41e2-bec9-db06248414e6",
+      "displayName": "Time range",
+      "description": "",
+      "showOnPages": {
+        "kind": "selection",
+        "pageIds": [
+          "b146093d-5e9f-4041-83d8-afb853d20cea",
+          "238522ef-f33c-4ba3-8671-2a19fdb1e1c7"
+        ]
+      },
+      "defaultValue": {
+        "count": 30,
+        "unit": "days",
+        "kind": "dynamic"
+      }
+    },
+    {
+      "variableName": "_Date",
+      "selectionType": "scalar",
+      "includeAllOption": false,
+      "dataSource": {
+        "kind": "query",
+        "columns": {
+          "value": "ColumnName"
+        },
+        "queryRef": {
+          "kind": "query",
+          "queryId": "ac694a97-719c-4c52-9b30-72f0fdbf29ce"
+        }
+      },
+      "kind": "string",
+      "id": "6a1f0cc7-765b-4b14-b425-02afaf6055cb",
+      "displayName": "By date",
+      "description": "",
+      "showOnPages": {
+        "kind": "selection",
+        "pageIds": [
+          "b146093d-5e9f-4041-83d8-afb853d20cea",
+          "238522ef-f33c-4ba3-8671-2a19fdb1e1c7"
+        ]
+      },
+      "defaultValue": {
+        "kind": "query-result"
+      }
+    },
+    {
+      "variableName": "_Column",
+      "selectionType": "scalar",
+      "includeAllOption": false,
+      "dataSource": {
+        "kind": "query",
+        "columns": {
+          "value": "ColumnName"
+        },
+        "queryRef": {
+          "kind": "query",
+          "queryId": "790032ef-c9bd-4b63-b37d-2d1319949c02"
+        }
+      },
+      "kind": "string",
+      "id": "7048b2a2-8b9e-4098-bb4d-cad92e9cae24",
+      "displayName": "Columns",
+      "description": "",
+      "showOnPages": {
+        "kind": "selection",
+        "pageIds": []
+      },
+      "defaultValue": {
+        "kind": "query-result"
+      }
+    }
+  ],
+  "pages": [
+    {
+      "name": "Copilot Insights",
+      "id": "b146093d-5e9f-4041-83d8-afb853d20cea"
+    },
+    {
+      "name": "Profile",
+      "id": "238522ef-f33c-4ba3-8671-2a19fdb1e1c7"
+    }
+  ],
+  "queries": [
+    {
+      "dataSource": {
+        "kind": "inline",
+        "dataSourceId": "e5d28373-a861-4a5b-a653-6fc42c3ec443"
+      },
+      "text": "_Base\n| summarize totalAmount=sum(amount), totalQuantity=sum(quantity), eventCount=count() by status\n| project status, totalAmount, totalQuantity, eventCount\n| render columnchart",
+      "id": "c97c1311-1497-45d1-9a7f-b2b651e11a33",
+      "usedVariables": [
+        "_Base",
+        "_Date"
+      ]
+    },
+    {
+      "dataSource": {
+        "kind": "inline",
+        "dataSourceId": "e5d28373-a861-4a5b-a653-6fc42c3ec443"
+      },
+      "text": "_Base\n| summarize avgSatisfaction=avg(toint(customerSatisfaction)), eventCount=count() by paymentMethod\n| project paymentMethod, avgSatisfaction, eventCount\n| render table",
+      "id": "ddc20211-fd31-440e-bfdc-a314693cddb5",
+      "usedVariables": [
+        "_Base",
+        "_Date"
+      ]
+    },
+    {
+      "dataSource": {
+        "kind": "inline",
+        "dataSourceId": "e5d28373-a861-4a5b-a653-6fc42c3ec443"
+      },
+      "text": "_Base\n| summarize totalAmount=sum(amount), eventCount=count() by currency\n| top 10 by totalAmount desc\n| project currency, totalAmount, eventCount\n| render columnchart",
+      "id": "27ef7d2f-c0aa-415d-9322-77603a1b756c",
+      "usedVariables": [
+        "_Base",
+        "_Date"
+      ]
+    },
+    {
+      "dataSource": {
+        "kind": "inline",
+        "dataSourceId": "e5d28373-a861-4a5b-a653-6fc42c3ec443"
+      },
+      "text": "_Base\n| summarize totalAmount=sum(amount), totalQuantity=sum(quantity) by bin(eventTime, 7d)\n| project eventTime, totalAmount, totalQuantity\n| render linechart",
+      "id": "75976e21-d553-4973-9f22-6ec525812f87",
+      "usedVariables": [
+        "_Base",
+        "_Date"
+      ]
+    },
+    {
+      "dataSource": {
+        "kind": "inline",
+        "dataSourceId": "e5d28373-a861-4a5b-a653-6fc42c3ec443"
+      },
+      "text": "Silver_CustomerEvents",
+      "id": "018c4009-7a46-4909-99dc-7d71484196f5",
+      "usedVariables": []
+    },
+    {
+      "dataSource": {
+        "kind": "inline",
+        "dataSourceId": "e5d28373-a861-4a5b-a653-6fc42c3ec443"
+      },
+      "text": "table('Silver_CustomerEvents','hotcache')| where column_ifexists( _Date,ingestion_time()) between(_startTime.._endTime)",
+      "id": "f6f29a3f-2de7-4229-beda-c6271cc4bfac",
+      "usedVariables": [
+        "_Date",
+        "_endTime",
+        "_startTime"
+      ]
+    },
+    {
+      "dataSource": {
+        "kind": "inline",
+        "dataSourceId": "e5d28373-a861-4a5b-a653-6fc42c3ec443"
+      },
+      "text": "_schema| union (print ColumnName='ingestion_time()',ColumnType='datetime')| where ColumnType =='datetime'| project ColumnName",
+      "id": "de54d064-f80a-4674-9aaa-369d05385f9a",
+      "usedVariables": [
+        "_schema"
+      ]
+    },
+    {
+      "dataSource": {
+        "kind": "inline",
+        "dataSourceId": "e5d28373-a861-4a5b-a653-6fc42c3ec443"
+      },
+      "text": "_BaseTable| getschema",
+      "id": "012d56a8-5710-46e2-ac8b-07bf9d644b9f",
+      "usedVariables": [
+        "_BaseTable"
+      ]
+    },
+    {
+      "dataSource": {
+        "kind": "inline",
+        "dataSourceId": "e5d28373-a861-4a5b-a653-6fc42c3ec443"
+      },
+      "text": "let TimeRange=toscalar(_Base | summarize Start=min(column_ifexists(_Date,ingestion_time())),End=max(column_ifexists(_Date,ingestion_time()))| project totimespan(End - Start));let Bin=case(TimeRange > 7d,1d,TimeRange> 1d,1h,TimeRange>6h,10m,1m);_Base| summarize Rows=count() by bin(column_ifexists(_Date,ingestion_time()),Bin)",
+      "id": "ae6efa34-80ef-4f28-89cd-452767198be0",
+      "usedVariables": [
+        "_Base",
+        "_Date"
+      ]
+    },
+    {
+      "dataSource": {
+        "kind": "inline",
+        "dataSourceId": "e5d28373-a861-4a5b-a653-6fc42c3ec443"
+      },
+      "text": "_schema| project ColumnName,ColumnType",
+      "id": "e8ed6baf-c877-4914-96c6-6a45e5725645",
+      "usedVariables": [
+        "_schema"
+      ]
+    },
+    {
+      "dataSource": {
+        "kind": "inline",
+        "dataSourceId": "e5d28373-a861-4a5b-a653-6fc42c3ec443"
+      },
+      "text": "_Base| take 100",
+      "id": "5281e493-ba4a-43b5-bfcc-eaa33eace803",
+      "usedVariables": [
+        "_Base"
+      ]
+    },
+    {
+      "dataSource": {
+        "kind": "inline",
+        "dataSourceId": "e5d28373-a861-4a5b-a653-6fc42c3ec443"
+      },
+      "text": "_Base| summarize Lowest=min(column_ifexists(_Column,ingestion_time())),Highest=max(column_ifexists(_Column,ingestion_time()))",
+      "id": "ad53f537-caa3-4e2c-94de-41067ca12e36",
+      "usedVariables": [
+        "_Base",
+        "_Column"
+      ]
+    },
+    {
+      "dataSource": {
+        "kind": "inline",
+        "dataSourceId": "e5d28373-a861-4a5b-a653-6fc42c3ec443"
+      },
+      "text": "_Base| summarize UniqueVales=dcount(column_ifexists(_Column,ingestion_time()))",
+      "id": "be47ae7f-83c6-41ab-9450-15826b900b68",
+      "usedVariables": [
+        "_Base",
+        "_Column"
+      ]
+    },
+    {
+      "dataSource": {
+        "kind": "inline",
+        "dataSourceId": "e5d28373-a861-4a5b-a653-6fc42c3ec443"
+      },
+      "text": "_Base| take 1000000 | summarize ['Appears in 1M sample rows']=count() by  tostring(column_ifexists(_Column,0))| take 10| order by ['Appears in 1M sample rows']",
+      "id": "6d9c1a1c-04c3-447d-b86b-1e0660bfcb5e",
+      "usedVariables": [
+        "_Base",
+        "_Column"
+      ]
+    },
+    {
+      "dataSource": {
+        "kind": "inline",
+        "dataSourceId": "e5d28373-a861-4a5b-a653-6fc42c3ec443"
+      },
+      "text": "_Dates",
+      "id": "ac694a97-719c-4c52-9b30-72f0fdbf29ce",
+      "usedVariables": [
+        "_Dates"
+      ]
+    },
+    {
+      "dataSource": {
+        "kind": "inline",
+        "dataSourceId": "e5d28373-a861-4a5b-a653-6fc42c3ec443"
+      },
+      "text": "_schema| project ColumnName",
+      "id": "790032ef-c9bd-4b63-b37d-2d1319949c02",
+      "usedVariables": [
+        "_schema"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,171 @@
+table CustomerEvents
+	lineageTag: afcf7bfa-2ad4-4cac-95ef-06b718eb794c
+	sourceLineageTag: [dbo].[CustomerEvents]
+
+	column eventId
+		dataType: string
+		lineageTag: 7329c68c-c443-42d7-ba8c-d2a64997ce46
+		sourceLineageTag: eventId
+		summarizeBy: none
+		sourceColumn: eventId
+
+		annotation SummarizationSetBy = Automatic
+
+	column eventTime
+		dataType: string
+		lineageTag: 4aa2ba77-ea99-4cab-a539-c115d857839c
+		sourceLineageTag: eventTime
+		summarizeBy: none
+		sourceColumn: eventTime
+
+		annotation SummarizationSetBy = Automatic
+
+	column orderId
+		dataType: string
+		lineageTag: 034cf3a4-74d0-4bd4-8de1-5f34f8b51b28
+		sourceLineageTag: orderId
+		summarizeBy: none
+		sourceColumn: orderId
+
+		annotation SummarizationSetBy = Automatic
+
+	column status
+		dataType: string
+		lineageTag: 63a21b9d-2a8e-4912-9aeb-d9a95151d8bb
+		sourceLineageTag: status
+		summarizeBy: none
+		sourceColumn: status
+
+		annotation SummarizationSetBy = Automatic
+
+	column amount
+		dataType: double
+		lineageTag: 547abd11-fb77-4a77-87bc-2902915e38cb
+		sourceLineageTag: amount
+		summarizeBy: sum
+		sourceColumn: amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column quantity
+		dataType: int64
+		formatString: 0
+		lineageTag: 895af243-10a9-4e77-a92e-4256be4edbd7
+		sourceLineageTag: quantity
+		summarizeBy: sum
+		sourceColumn: quantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column paymentMethod
+		dataType: string
+		lineageTag: f465022f-5df1-49d7-a4b6-c6d4f6fcd197
+		sourceLineageTag: paymentMethod
+		summarizeBy: none
+		sourceColumn: paymentMethod
+
+		annotation SummarizationSetBy = Automatic
+
+	column currency
+		dataType: string
+		lineageTag: 38a49172-c8ee-4431-acbb-915a3714d23d
+		sourceLineageTag: currency
+		summarizeBy: none
+		sourceColumn: currency
+
+		annotation SummarizationSetBy = Automatic
+
+	column customerId
+		dataType: string
+		lineageTag: c7e7313e-4592-4911-bc4e-347c1202ba25
+		sourceLineageTag: customerId
+		summarizeBy: none
+		sourceColumn: customerId
+
+		annotation SummarizationSetBy = Automatic
+
+	column productId
+		dataType: string
+		lineageTag: 8510c73f-f2c2-46e0-8b08-1169bebb7841
+		sourceLineageTag: productId
+		summarizeBy: none
+		sourceColumn: productId
+
+		annotation SummarizationSetBy = Automatic
+
+	column merchantId
+		dataType: string
+		lineageTag: d9289db8-05df-43f9-92f9-1d5aba6d3f57
+		sourceLineageTag: merchantId
+		summarizeBy: none
+		sourceColumn: merchantId
+
+		annotation SummarizationSetBy = Automatic
+
+	column customerSatisfaction
+		dataType: int64
+		formatString: 0
+		lineageTag: a07da1e4-672c-47a6-b611-bc9f5a08dff5
+		sourceLineageTag: customerSatisfaction
+		summarizeBy: sum
+		sourceColumn: customerSatisfaction
+
+		annotation SummarizationSetBy = Automatic
+
+	column source
+		dataType: string
+		lineageTag: 8c8728d3-d8ed-4656-9a20-59602cfa1693
+		sourceLineageTag: source
+		summarizeBy: none
+		sourceColumn: source
+
+		annotation SummarizationSetBy = Automatic
+
+	column schemaVersion
+		dataType: string
+		lineageTag: 46f29c98-c6b1-44f9-8d50-e9bd68b689b8
+		sourceLineageTag: schemaVersion
+		summarizeBy: none
+		sourceColumn: schemaVersion
+
+		annotation SummarizationSetBy = Automatic
+
+	column EventProcessedUtcTime
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 4207ab8a-0ce4-48f0-bdce-4f39fb19f4d2
+		sourceLineageTag: EventProcessedUtcTime
+		summarizeBy: none
+		sourceColumn: EventProcessedUtcTime
+
+		annotation SummarizationSetBy = Automatic
+
+	column PartitionId
+		dataType: int64
+		formatString: 0
+		lineageTag: 42e33937-fbc4-47f6-8c7c-52943a68e8a9
+		sourceLineageTag: PartitionId
+		summarizeBy: count
+		sourceColumn: PartitionId
+
+		annotation SummarizationSetBy = Automatic
+
+	column EventEnqueuedUtcTime
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 63e051f7-25d6-4e20-ba17-0213b7c85349
+		sourceLineageTag: EventEnqueuedUtcTime
+		summarizeBy: none
+		sourceColumn: EventEnqueuedUtcTime
+
+		annotation SummarizationSetBy = Automatic
+
+	partition CustomerEvents = entity
+		mode: directLake
+		source
+			entityName: CustomerEvents
+			schemaName: dbo
+			expressionSource: 'DirectLake - RTIDemoLakehouse'
+

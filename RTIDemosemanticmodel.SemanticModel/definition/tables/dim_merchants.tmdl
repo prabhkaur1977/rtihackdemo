@@ -1,0 +1,47 @@
+table dim_merchants
+	lineageTag: 9821451b-cafe-4c37-9e09-2b3032a7b3da
+	sourceLineageTag: [dbo].[dim_merchants]
+
+	column merchantId
+		dataType: string
+		lineageTag: 79650592-1fc5-4d16-bcb8-c580fdba2495
+		sourceLineageTag: merchantId
+		summarizeBy: none
+		sourceColumn: merchantId
+
+		annotation SummarizationSetBy = Automatic
+
+	column merchantName
+		dataType: string
+		lineageTag: 223ad306-0cff-453f-93f5-a350cf9fa78e
+		sourceLineageTag: merchantName
+		summarizeBy: none
+		sourceColumn: merchantName
+
+		annotation SummarizationSetBy = Automatic
+
+	column industry
+		dataType: string
+		lineageTag: 3247af62-5dfe-4a3f-b3ec-8604e20a5e49
+		sourceLineageTag: industry
+		summarizeBy: none
+		sourceColumn: industry
+
+		annotation SummarizationSetBy = Automatic
+
+	column region
+		dataType: string
+		lineageTag: 31316c73-5deb-45ef-86f9-7aeeb12aa656
+		sourceLineageTag: region
+		summarizeBy: none
+		sourceColumn: region
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_merchants = entity
+		mode: directLake
+		source
+			entityName: dim_merchants
+			schemaName: dbo
+			expressionSource: 'DirectLake - RTIDemoLakehouse'
+

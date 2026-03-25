@@ -1,0 +1,49 @@
+table dim_products
+	lineageTag: 25dad57f-c52e-4fb7-a5b3-9f3ff9f24bff
+	sourceLineageTag: [dbo].[dim_products]
+
+	column productId
+		dataType: string
+		lineageTag: 1db964fd-271d-4978-b46b-a578e449b72d
+		sourceLineageTag: productId
+		summarizeBy: none
+		sourceColumn: productId
+
+		annotation SummarizationSetBy = Automatic
+
+	column productName
+		dataType: string
+		lineageTag: 52ff30e1-c608-4a48-9cc3-d46dd6e57c7f
+		sourceLineageTag: productName
+		summarizeBy: none
+		sourceColumn: productName
+
+		annotation SummarizationSetBy = Automatic
+
+	column category
+		dataType: string
+		lineageTag: 4f6eac20-9b3b-462f-a4cf-b12a6825db85
+		sourceLineageTag: category
+		summarizeBy: none
+		sourceColumn: category
+
+		annotation SummarizationSetBy = Automatic
+
+	column basePrice
+		dataType: double
+		lineageTag: da6f1b1c-7e28-4535-aa9a-985868c8175a
+		sourceLineageTag: basePrice
+		summarizeBy: none
+		sourceColumn: basePrice
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition dim_products = entity
+		mode: directLake
+		source
+			entityName: dim_products
+			schemaName: dbo
+			expressionSource: 'DirectLake - RTIDemoLakehouse'
+

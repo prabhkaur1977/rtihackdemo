@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "KQLDashboard",
+    "displayName": "Dashboard Silver_CustomerEvents"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "88ba5e26-a939-badc-4017-8bd382cf9e3c"
+  }
+}

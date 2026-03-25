@@ -1,0 +1,9 @@
+expression 'DirectLake - RTIDemoLakehouse' =
+		let
+		    Source = AzureStorage.DataLake("https://onelake.dfs.fabric.microsoft.com/dc8edb26-fad5-4a86-9dae-3ce0cf411f97/8e8ddbeb-2fd3-49ea-80f2-145990e6c253", [HierarchicalNavigation=true])
+		in
+		    Source
+	lineageTag: 0ac77490-cc61-49cd-8199-3fd6e2efedb2
+
+	annotation PBI_IncludeFutureArtifacts = False
+

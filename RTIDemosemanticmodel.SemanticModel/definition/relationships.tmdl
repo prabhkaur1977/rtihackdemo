@@ -1,0 +1,12 @@
+relationship fff48a75-2f57-1f8b-88fe-5ae1d3310539
+	fromColumn: CustomerEvents.customerId
+	toColumn: dim_customers.customerId
+
+relationship cd9fc7a3-018e-de9e-f6a0-3a134ebbea5b
+	fromColumn: CustomerEvents.merchantId
+	toColumn: dim_merchants.merchantId
+
+relationship 3f4ce729-ef89-9f39-a9e7-4943dd8bc6da
+	fromColumn: CustomerEvents.productId
+	toColumn: dim_products.productId
+

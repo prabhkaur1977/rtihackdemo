@@ -12,20 +12,26 @@
     ],
     "tabs": [
       {
-        "id": "455631f9-be09-423d-84ee-dddb4e73d7c0",
-        "content": "//***********************************************************************************************************\n// Here are two articles to help you get started with KQL:\n// KQL reference guide - https://aka.ms/KQLguide\n// SQL - KQL conversions - https://aka.ms/sqlcheatsheet\n//***********************************************************************************************************\n\n// Use \"take\" to view a sample number of records in the table and check the data.\nYOUR_TABLE_HERE\n| take 100\n\n// See how many records are in the table.\nYOUR_TABLE_HERE\n| count\n\n// This query returns the number of ingestions per hour in the given table.\nYOUR_TABLE_HERE\n| summarize IngestionCount = count() by bin(ingestion_time(), 1h)\n\n",
-        "title": "Tab",
-        "dataSourceId": "b7298043-ee4c-43e6-8384-867c1043d971"
-      },
-      {
-        "id": "4aae73dd-f91b-4be6-a167-cb94f8693cf5",
-        "content": "// Use 'take' to view a sample number of records in the table and check the data.\nCustomerEvents\n\n",
+        "id": "70f239b3-c025-42f2-a335-f3715ce6becd",
+        "content": ".create-or-alter function with (skipvalidation = \"true\") Silver_CustEventsFN() {\n    CustomerEvents | \nproject eventId, eventTime = todatetime(eventTime),orderId,status,amount ,quantity,paymentMethod,currency,customerId, \nproductId,merchantId,customerSatisfaction=tostring(customerSatisfaction)\n}\n",
         "title": "",
         "dataSourceId": "b7298043-ee4c-43e6-8384-867c1043d971"
       },
       {
-        "id": "04740a1f-2127-4f2a-abdf-54ec67c4398b",
-        "content": ".show tables",
+        "id": "e1917bce-f3c1-4f49-9786-c9bf306ec070",
+        "content": ".create materialized-view Gold_LostCustEvent_MV on table Silver_CustomerEvents where status == 'Lost'\n{\n  \n}\n\n.create materialized-view with (backfill=true) gold_LostCustomerEvents_MV on table Silver_CustomerEvents\n{\n  Silver_CustomerEvents\n  | where tolower(status) in (\"lost\")\n  \n}\n\n\n",
+        "title": "",
+        "dataSourceId": "b7298043-ee4c-43e6-8384-867c1043d971"
+      },
+      {
+        "id": "e097f799-53a7-4308-9c61-13fd5557198a",
+        "content": ".create table gold_LostCustomerEvents (\n    eventId:string,\n    customerId:string,\n    status:string,\n    eventTime:datetime,\n    amount: real,\n    quantity:long,\n    productid:string,\n    merchantid:string,\n    customerSatisfaction:string \n\n)\n\n\n.create-or-alter function with (folder=\"update-policy\") fn_gold_lost_events()\n{\n    Silver_CustomerEvents\n    | where tolower(status) == \"lost\"\n    | project  eventId,\n    customerId,\n    status,\n    eventTime,\n    amount,\n    quantity,\n    productId,\n    merchantId,\n    customerSatisfaction \n}\n\n\n\n// IsEnabled (bool) - States if update policy is true - enabled, or false - disabled\n// source (string) - Name of the table that triggers invocation of the update policy\n// Query (string) - A query used to produce data for the update\n// IsTransactional (bool) - States if the update policy is transactional or not, default is false). If transactional and the update policy fails, the source table is not updated.\n// PropagateIngestionProperties (bool) - States if properties specified during ingestion to the source table, such as extent tags and creation time, apply to the target table\n// read more - https://aka.ms/updatepolicy\n\n.alter table gold_LostCustomerEvents policy update\n```[{\n  \"IsEnabled\": true,\n  \"Source\": \"Silver_CustomerEvents\",\n  \"Query\": \"fn_gold_lost_events\",\n}]```\n\n\n",
+        "title": "",
+        "dataSourceId": "b7298043-ee4c-43e6-8384-867c1043d971"
+      },
+      {
+        "id": "5305246e-e8cf-4016-ab1b-0da4a985fe68",
+        "content": "// View a representation of the schema as a table with column names, column type, and data type.\nSilver_CustomerEvents\n| getschema\n",
         "title": "",
         "dataSourceId": "b7298043-ee4c-43e6-8384-867c1043d971"
       }
