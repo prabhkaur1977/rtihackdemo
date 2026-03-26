@@ -5,29 +5,29 @@ The flow is: **simulate retail order/customer events → ingest in Eventhouse �
 
 ## What’s in this repo
 
-- **RTIDemoLakehouse.Lakehouse/**  
+- **RTIDemoLakehouse**  
   Lakehouse used for persisted/curated datasets (reporting, analytics, downstream use).
 
-- **Notebook 1- To seed Dimension Tables.Notebook/**  
+- **Notebook 1- To seed Dimension Tables**  
   Seeds dimension/reference tables (e.g., products, merchants, customers).
 
-- **Notebook 2-RTI Simulate Real-time Customer Events.Notebook/**  
+- **Notebook 2-RTI Simulate Real-time Customer Events**  
   Generates sample **retail order** and customer activity events for real-time ingestion.
 
-- **RTIDemoEventStream.Eventstream/**  
+- **RTIDemoEventStream**  
   Eventstream definition for routing/transforms from event sources to destinations.
   
-- **RTIDemoEventHouse.Eventhouse/**  
+- **RTIDemoEventHouse**  
   Eventhouse definition used to ingest and query streaming events.
 
 
-- **Sales_Activator/**
+- **Sales_Activator**
   Ship new order if customer satisfaction score is low.
 
--  **SendNewOrderActivator/**  
+-  **SendNewOrderActivator**  
   Ship new order if status of order lost.
 
-- **rtiopertionagent.OperationsAgent/**  
+- **rtiopertionagent.OperationsAgent**  
   Operational assets to help monitor/run the demo.
 
 ## Prerequisites
