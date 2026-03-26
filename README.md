@@ -44,12 +44,12 @@ The flow is: **simulate retail order/customer events → ingest in Eventhouse �
 
 1. Import/clone this repository into your Fabric workspace (or download and import the items).
 2. Create/select your target **Lakehouse** and **Eventhouse** (if the imported items don’t already bind to existing ones).
-3. Run **1. Seed Dimension Tables.Notebook** to populate retail reference/dimension data.
+3. Run Notebook 1 **Seed Dimension Tables** to populate retail dimension data.
 4. Configure/start **RTIDemoEventStream.Eventstream** and confirm it’s connected to destinations.
-5. Run **RTI Simulate Real-time Customer Events.Notebook** to start sending **retail order events**.
+5. Run Notebook 2 **RTI Simulate Real-time Customer Events** to start sending **retail order events**.
 6. Validate ingestion in **RTIDemoEventHouse.Eventhouse** (events arriving, schema as expected).
 7. Verify data landing/curation in **RTIDemoLakehouse.Lakehouse**.
-8. Enable **sales_activator.Reflex** / **SendNewOrderActivator.Reflex** to trigger actions when conditions are met.
+8. Enable **sales_activator** & **SendNewOrderActivator** to trigger actions when conditions are met.
 
 ## Notes
 
