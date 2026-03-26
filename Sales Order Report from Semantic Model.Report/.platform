@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Sales Order Report from Semantic Model"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "e70c2702-cad6-97e1-403f-21be92e753c9"
+  }
+}
