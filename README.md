@@ -46,6 +46,11 @@ The flow is: **simulate retail order/customer events â†’ ingest in Eventhouse â†
 
   <img width="1782" height="880" alt="image" src="https://github.com/user-attachments/assets/80e22118-23d2-4061-ac83-83287ef931e3" />
 
+- **Semantic Model**
+   Create semantic model and dashboard to get total sales amount, Average Customer Satisfaction Score & Quantity of Product etc.
+
+  <img width="1413" height="792" alt="image" src="https://github.com/user-attachments/assets/955bbea5-dec8-4010-a54d-aa49e3c57167" />
+
 
 ## Prerequisites
 
