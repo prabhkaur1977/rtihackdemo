@@ -17,18 +17,35 @@ The flow is: **simulate retail order/customer events â†’ ingest in Eventhouse â†
 - **RTIDemoEventStream**  
   Eventstream definition for routing/transforms from event sources to destinations.
   
+  <img width="1086" height="230" alt="image" src="https://github.com/user-attachments/assets/c27d16d9-1366-419a-a412-1a3a28f9ca51" />
+
+  
 - **RTIDemoEventHouse**  
   Eventhouse definition used to ingest and query streaming events.
+
+- **Create Update Policy**
+  Create update policy to load data from Bronze to Silver to Gold Layer.
+  
+
+  <img width="818" height="251" alt="image" src="https://github.com/user-attachments/assets/57aa01a2-9d5c-4205-b45b-28d6c6f8bf44" />
+
+- **Realtime Dashboard**
+  To monitor realtime status
+
+  <img width="1530" height="903" alt="image" src="https://github.com/user-attachments/assets/0fffbfe9-af24-40ae-bbe1-9c39f0a5015c" />
 
 
 - **Sales_Activator**
   Ship new order if customer satisfaction score is low.
 
 -  **SendNewOrderActivator**  
-  Ship new order if status of order lost.
+  Ship new order if status of order is lost.
 
 - **rtiopertionagent.OperationsAgent**  
   Operational assets to help monitor/run the demo.
+
+  <img width="1782" height="880" alt="image" src="https://github.com/user-attachments/assets/80e22118-23d2-4061-ac83-83287ef931e3" />
+
 
 ## Prerequisites
 
