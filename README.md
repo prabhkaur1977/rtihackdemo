@@ -76,6 +76,7 @@ The flow is: **simulate retail order/customer events â†’ ingest in Eventhouse â†
 6. Validate ingestion in **RTIDemoEventHouse.Eventhouse** (events arriving, schema as expected).
 7. Verify data landing/curation in **RTIDemoLakehouse.Lakehouse**.
 8. Enable **sales_activator** & **SendNewOrderActivator** to trigger actions when conditions are met.
+9. Create Operations Agent **rtioperationagent**
 
 ## Notes
 
