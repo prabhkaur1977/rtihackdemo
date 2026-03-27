@@ -17,20 +17,43 @@
         "description": "SalesAnamality in Shops",
         "kind": "PowerAutomateAction",
         "parameters": []
+      },
+      "c6091ebb-97bf-4045-ae50-4c5d3d7653bb": {
+        "id": "c6091ebb-97bf-4045-ae50-4c5d3d7653bb",
+        "displayName": "IdentifyLostOrder",
+        "description": "Identify when an order status is lost and ship new order",
+        "kind": "PowerAutomateAction",
+        "parameters": []
       }
     }
   },
   "playbook": {
     "OntologyDefinitions": {
-      "Customer": {
-        "$type": "class",
-        "IRI": "Customer",
+      "customerId": {
+        "$type": "data",
+        "IRI": "customerId",
         "DocumentId": "",
-        "Name": "Customer",
-        "Description": "An individual or entity that places orders, associated with customer events but may lack a unique identifier in the data source.",
+        "Name": "customerId",
+        "Description": "The identifier for the customer.",
+        "DomainClassIRI": "Customer",
+        "RangeDataType": "string",
+        "Kind": 0,
         "DataLink": {
-          "$type": "kustotable",
-          "TableName": "CustomerEvents"
+          "$type": "kustotablecol",
+          "ColumnName": "customerId"
+        }
+      },
+      "placedBy": {
+        "$type": "object",
+        "IRI": "placedBy",
+        "DocumentId": "",
+        "Name": "placedBy",
+        "Description": "The relationship indicating which customer placed a given order.",
+        "DomainClassIRI": "Order",
+        "RangeClassIRI": "Customer",
+        "DataLink": {
+          "$type": "objectpropertyrangekey",
+          "DataPropertyIRI": "customerId"
         }
       },
       "status": {
@@ -47,17 +70,18 @@
           "ColumnName": "status"
         }
       },
-      "placedBy": {
-        "$type": "object",
-        "IRI": "placedBy",
+      "customerSatisfaction": {
+        "$type": "data",
+        "IRI": "customerSatisfaction",
         "DocumentId": "",
-        "Name": "placedBy",
-        "Description": "The relationship indicating which customer placed the order.",
+        "Name": "customerSatisfaction",
+        "Description": "The satisfaction rating given by the customer for the order.",
         "DomainClassIRI": "Order",
-        "RangeClassIRI": "Customer",
+        "RangeDataType": "integer",
+        "Kind": 1,
         "DataLink": {
-          "$type": "objectpropertyrangekey",
-          "DataPropertyIRI": "customerId"
+          "$type": "kustotablecol",
+          "ColumnName": "customerSatisfaction"
         }
       },
       "orderId": {
@@ -74,31 +98,6 @@
           "ColumnName": "orderId"
         }
       },
-      "Order": {
-        "$type": "class",
-        "IRI": "Order",
-        "DocumentId": "",
-        "Name": "Order",
-        "Description": "A purchase or transaction event associated with a customer, identifiable by orderId.",
-        "DataLink": {
-          "$type": "kustotable",
-          "TableName": "CustomerEvents"
-        }
-      },
-      "customerSatisfactionScore": {
-        "$type": "data",
-        "IRI": "customerSatisfactionScore",
-        "DocumentId": "",
-        "Name": "customerSatisfactionScore",
-        "Description": "The customer satisfaction score for the order.",
-        "DomainClassIRI": "Order",
-        "RangeDataType": "integer",
-        "Kind": 1,
-        "DataLink": {
-          "$type": "kustotablecol",
-          "ColumnName": "customerSatisfaction"
-        }
-      },
       "amountPaid": {
         "$type": "data",
         "IRI": "amountPaid",
@@ -112,22 +111,44 @@
           "$type": "kustotablecol",
           "ColumnName": "amount"
         }
+      },
+      "Customer": {
+        "$type": "class",
+        "IRI": "Customer",
+        "DocumentId": "",
+        "Name": "Customer",
+        "Description": "An individual or entity who places orders, identified by a customerId and associated with multiple event tables.",
+        "DataLink": {
+          "$type": "kustotable",
+          "TableName": "CustomerEvents"
+        }
+      },
+      "Order": {
+        "$type": "class",
+        "IRI": "Order",
+        "DocumentId": "",
+        "Name": "Order",
+        "Description": "A transaction or purchase event placed by a customer, identified by an orderId and associated with customer satisfaction, status, and amount paid.",
+        "DataLink": {
+          "$type": "kustotable",
+          "TableName": "CustomerEvents"
+        }
       }
     },
     "RuleDefinitions": {
-      "7e2a1b1e-8c1c-4e3e-9f7d-2f6e3c7a9b2d": {
-        "Id": "7e2a1b1e-8c1c-4e3e-9f7d-2f6e3c7a9b2d",
-        "Name": "Order Status Change to Lost",
-        "Description": "Monitor all orders and trigger an action when the order status changes to \u0027Lost\u0027. When this occurs, execute the \u0027SalesAnomalities\u0027 action.",
+      "e7a1c6b2-8c3e-4e8a-9b3d-7f2e2b9e4c1a": {
+        "Id": "e7a1c6b2-8c3e-4e8a-9b3d-7f2e2b9e4c1a",
+        "Name": "Low Customer Satisfaction Order Alert",
+        "Description": "Monitor all orders and trigger an alert when the customer satisfaction rating is below 1. When triggered, execute the SalesAnomalities action.",
         "ClassExpression": {
           "$type": "manchesterclassexp",
-          "Expression": "ClassExpression: AllOrders \u0060\u0060\u0060 Order \u0060\u0060\u0060 Annotations: metadata:description \u0022All orders in the system for monitoring status changes to \u0027Lost\u0027\u0022",
-          "Description": "All orders in the system for monitoring status changes to \u0027Lost\u0027"
+          "Expression": "ClassExpression: AllOrders \u0060\u0060\u0060 Order \u0060\u0060\u0060 Annotations: metadata:description \u0022All orders to be monitored for customer satisfaction below threshold\u0022",
+          "Description": "All orders to be monitored for customer satisfaction below threshold"
         },
         "RuleCondition": {
-          "$type": "textchangechangesto",
-          "DataPropertyName": "status",
-          "ToValue": "Lost"
+          "$type": "propertywhenisbelow",
+          "DataPropertyName": "customerSatisfaction",
+          "Threshold": 1
         },
         "ActionBinding": {
           "$type": "actionbinding",
@@ -137,25 +158,25 @@
           "ParameterBindings": []
         }
       },
-      "e4c7b2a6-3b8e-4e2a-9c7e-1a2b3c4d5e6f": {
-        "Id": "e4c7b2a6-3b8e-4e2a-9c7e-1a2b3c4d5e6f",
-        "Name": "Orders with Low Customer Satisfaction",
-        "Description": "Monitor all Order entities where the customerSatisfactionScore is below 1. When such an order is detected, trigger the SalesAnomalities action.",
+      "b6e3c7e2-8a5e-4e7e-9c2a-2f8e9e2d7a1b": {
+        "Id": "b6e3c7e2-8a5e-4e7e-9c2a-2f8e9e2d7a1b",
+        "Name": "Lost Orders with Payment",
+        "Description": "This rule monitors all orders where the status is \u0027lost\u0027 and the amount paid is above 0.0. When such an order is detected, the action \u0027IdentifyLostOrder\u0027 is triggered to identify the lost order and initiate shipping a new one.",
         "ClassExpression": {
           "$type": "manchesterclassexp",
-          "Expression": "ClassExpression: OrdersWithLowSatisfaction \u0060\u0060\u0060 Order that customerSatisfactionScore some (integer [\u0027\u003C\u0027 1]) \u0060\u0060\u0060 Annotations: metadata:description \u0022Orders with customer satisfaction score less than 1 for outreach notification\u0022",
-          "Description": "Orders with customer satisfaction score less than 1"
+          "Expression": "ClassExpression: LostAndPaidOrders \u0060\u0060\u0060 Order that status some (string [\u0027==\u0027 \u0022lost\u0022]) and amountPaid some (decimal [\u0027\u003E\u0027 0.0]) \u0060\u0060\u0060 Annotations: metadata:description \u0022Orders that are lost and have been paid for\u0022",
+          "Description": "Orders that are lost and have been paid for"
         },
         "RuleCondition": {
-          "$type": "propertywhenisbelow",
-          "DataPropertyName": "customerSatisfactionScore",
-          "Threshold": 1
+          "$type": "propertywhenisabove",
+          "DataPropertyName": "amountPaid",
+          "Threshold": 0
         },
         "ActionBinding": {
           "$type": "actionbinding",
-          "Name": "SalesAnomalities",
-          "Description": "SalesAnamality in Shops",
-          "ActionId": "b1d14342-4850-49c1-9c94-f8db70fccd35",
+          "Name": "IdentifyLostOrder",
+          "Description": "Identify when an order status is lost and ship new order",
+          "ActionId": "c6091ebb-97bf-4045-ae50-4c5d3d7653bb",
           "ParameterBindings": []
         }
       }

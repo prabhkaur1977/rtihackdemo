@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Reflex",
+    "displayName": "IdentifyLostOrderactivator",
+    "description": "Activator: IdentifyLostOrderactivator"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "6e9c2b45-ddb4-91ba-4bde-8ab3dec91a32"
+  }
+}
