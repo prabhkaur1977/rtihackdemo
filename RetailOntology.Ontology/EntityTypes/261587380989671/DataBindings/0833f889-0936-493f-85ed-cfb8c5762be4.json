@@ -1,0 +1,36 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/ontology/dataBinding/1.0.0/schema.json",
+  "id": "0833f889-0936-493f-85ed-cfb8c5762be4",
+  "dataBindingConfiguration": {
+    "dataBindingType": "NonTimeSeries",
+    "propertyBindings": [
+      {
+        "sourceColumnName": "id",
+        "targetPropertyId": "679182071937715639"
+      },
+      {
+        "sourceColumnName": "orderID",
+        "targetPropertyId": "679182071203579421"
+      },
+      {
+        "sourceColumnName": "Customerid",
+        "targetPropertyId": "679182069981214321"
+      },
+      {
+        "sourceColumnName": "productid",
+        "targetPropertyId": "679182071046770763"
+      },
+      {
+        "sourceColumnName": "eventlogicalkeys",
+        "targetPropertyId": "679182072066135722"
+      }
+    ],
+    "sourceTableProperties": {
+      "sourceType": "LakehouseTable",
+      "workspaceId": "00000000-0000-0000-0000-000000000000",
+      "itemId": "90e6c253-1459-80f2-49ea-2fd38e8ddbeb",
+      "sourceTableName": "dim_events",
+      "sourceSchema": "dbo"
+    }
+  }
+}

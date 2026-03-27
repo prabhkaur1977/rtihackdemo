@@ -1,0 +1,13 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/ontology/relationshipType/1.0.0/schema.json",
+  "namespace": "usertypes",
+  "id": "1480787296149357332",
+  "name": "merchantsold",
+  "namespaceType": "Custom",
+  "source": {
+    "entityTypeId": "249144331723747"
+  },
+  "target": {
+    "entityTypeId": "99243413917279"
+  }
+}

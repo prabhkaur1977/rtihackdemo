@@ -1,0 +1,54 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/ontology/dataBinding/1.0.0/schema.json",
+  "id": "76fa8ebd-ac69-434b-b5e2-0a40daf46f53",
+  "dataBindingConfiguration": {
+    "dataBindingType": "TimeSeries",
+    "timestampColumnName": "eventTime",
+    "propertyBindings": [
+      {
+        "sourceColumnName": "eventId",
+        "targetPropertyId": "681099898603823263"
+      },
+      {
+        "sourceColumnName": "status",
+        "targetPropertyId": "681099897375545498"
+      },
+      {
+        "sourceColumnName": "eventTime",
+        "targetPropertyId": "681099896747648486"
+      },
+      {
+        "sourceColumnName": "orderID",
+        "targetPropertyId": "679182071203579421"
+      },
+      {
+        "sourceColumnName": "customerId",
+        "targetPropertyId": "679182069981214321"
+      },
+      {
+        "sourceColumnName": "productId",
+        "targetPropertyId": "679182071046770763"
+      },
+      {
+        "sourceColumnName": "merchantId",
+        "targetPropertyId": "681099898699410454"
+      },
+      {
+        "sourceColumnName": "customerSatisfaction",
+        "targetPropertyId": "681099898957200749"
+      },
+      {
+        "sourceColumnName": "eventlogicalkeys",
+        "targetPropertyId": "679182072066135722"
+      }
+    ],
+    "sourceTableProperties": {
+      "sourceType": "KustoTable",
+      "workspaceId": "00000000-0000-0000-0000-000000000000",
+      "itemId": "6f78f0f9-d167-94cd-43ad-8df62658fd0e",
+      "clusterUri": "https://trd-81qd1fbkan1mukejn5.z6.kusto.fabric.microsoft.com",
+      "databaseName": "RTIDemoEventHouse",
+      "sourceTableName": "gold_CustomerEvents"
+    }
+  }
+}

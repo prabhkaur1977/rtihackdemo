@@ -1,0 +1,48 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/ontology/dataBinding/1.0.0/schema.json",
+  "id": "f876720f-91d2-4d4c-96ea-77096c8846e8",
+  "dataBindingConfiguration": {
+    "dataBindingType": "NonTimeSeries",
+    "propertyBindings": [
+      {
+        "sourceColumnName": "orderId",
+        "targetPropertyId": "1485218872792803836"
+      },
+      {
+        "sourceColumnName": "customerid",
+        "targetPropertyId": "1485218876354307454"
+      },
+      {
+        "sourceColumnName": "productId",
+        "targetPropertyId": "1485218872918706297"
+      },
+      {
+        "sourceColumnName": "merchantId",
+        "targetPropertyId": "1485218872767305215"
+      },
+      {
+        "sourceColumnName": "amount",
+        "targetPropertyId": "1485218873234864325"
+      },
+      {
+        "sourceColumnName": "quantity",
+        "targetPropertyId": "1485218873638293972"
+      },
+      {
+        "sourceColumnName": "paymentMethod",
+        "targetPropertyId": "1485218876222222398"
+      },
+      {
+        "sourceColumnName": "currency",
+        "targetPropertyId": "1485218873187057308"
+      }
+    ],
+    "sourceTableProperties": {
+      "sourceType": "LakehouseTable",
+      "workspaceId": "00000000-0000-0000-0000-000000000000",
+      "itemId": "90e6c253-1459-80f2-49ea-2fd38e8ddbeb",
+      "sourceTableName": "fact_orders",
+      "sourceSchema": "dbo"
+    }
+  }
+}

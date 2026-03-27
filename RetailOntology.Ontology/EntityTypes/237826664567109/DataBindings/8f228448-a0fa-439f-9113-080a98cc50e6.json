@@ -1,0 +1,32 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/ontology/dataBinding/1.0.0/schema.json",
+  "id": "8f228448-a0fa-439f-9113-080a98cc50e6",
+  "dataBindingConfiguration": {
+    "dataBindingType": "NonTimeSeries",
+    "propertyBindings": [
+      {
+        "sourceColumnName": "customerId",
+        "targetPropertyId": "1491085218503950210"
+      },
+      {
+        "sourceColumnName": "customerName",
+        "targetPropertyId": "1491085214372169450"
+      },
+      {
+        "sourceColumnName": "region",
+        "targetPropertyId": "1491085216488855199"
+      },
+      {
+        "sourceColumnName": "loyaltyTier",
+        "targetPropertyId": "1491085214483553194"
+      }
+    ],
+    "sourceTableProperties": {
+      "sourceType": "LakehouseTable",
+      "workspaceId": "00000000-0000-0000-0000-000000000000",
+      "itemId": "90e6c253-1459-80f2-49ea-2fd38e8ddbeb",
+      "sourceTableName": "dim_customers",
+      "sourceSchema": "dbo"
+    }
+  }
+}
