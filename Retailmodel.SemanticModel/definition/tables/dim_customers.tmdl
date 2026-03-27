@@ -1,0 +1,47 @@
+table dim_customers
+	lineageTag: 978136dd-c468-4579-9b99-95f3a88c7eb5
+	sourceLineageTag: [dbo].[dim_customers]
+
+	column customerId
+		dataType: string
+		lineageTag: d0df6f1e-8bb6-4bcd-9bad-ec0e9415c452
+		sourceLineageTag: customerId
+		summarizeBy: none
+		sourceColumn: customerId
+
+		annotation SummarizationSetBy = Automatic
+
+	column customerName
+		dataType: string
+		lineageTag: fef23be5-66b9-4069-9076-408a38c8aa19
+		sourceLineageTag: customerName
+		summarizeBy: none
+		sourceColumn: customerName
+
+		annotation SummarizationSetBy = Automatic
+
+	column region
+		dataType: string
+		lineageTag: 0f4df00a-dd6f-4a54-ba06-4f78ceaf0ee9
+		sourceLineageTag: region
+		summarizeBy: none
+		sourceColumn: region
+
+		annotation SummarizationSetBy = Automatic
+
+	column loyaltyTier
+		dataType: string
+		lineageTag: 95a8dd49-0937-40aa-94e4-1bca04393575
+		sourceLineageTag: loyaltyTier
+		summarizeBy: none
+		sourceColumn: loyaltyTier
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_customers = entity
+		mode: directLake
+		source
+			entityName: dim_customers
+			schemaName: dbo
+			expressionSource: 'DirectLake - RTIDemoLakehouse'
+

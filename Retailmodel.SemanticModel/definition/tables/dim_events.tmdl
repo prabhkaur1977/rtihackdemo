@@ -1,0 +1,29 @@
+table dim_events
+	lineageTag: 45071128-9f14-4816-a3eb-8eea2c1b1c63
+	sourceLineageTag: [dbo].[dim_events]
+
+	column eventID
+		dataType: string
+		lineageTag: f73a3061-baa3-4ab3-a0a3-0c7e7c52f2d4
+		sourceLineageTag: eventID
+		summarizeBy: none
+		sourceColumn: eventID
+
+		annotation SummarizationSetBy = Automatic
+
+	column orderID
+		dataType: string
+		lineageTag: 14b62746-1a7e-4e5c-ab48-e7c887d11fee
+		sourceLineageTag: orderID
+		summarizeBy: none
+		sourceColumn: orderID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_events = entity
+		mode: directLake
+		source
+			entityName: dim_events
+			schemaName: dbo
+			expressionSource: 'DirectLake - RTIDemoLakehouse'
+

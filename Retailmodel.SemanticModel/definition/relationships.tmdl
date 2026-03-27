@@ -1,0 +1,19 @@
+relationship 5596d049-7a40-ab07-8305-60d6bc759718
+	relyOnReferentialIntegrity
+	fromColumn: fact_orders.merchantId
+	toColumn: dim_merchants.merchantId
+
+relationship f136aa93-7db4-0300-8f9f-2a81217fc5e0
+	relyOnReferentialIntegrity
+	fromColumn: fact_orders.productId
+	toColumn: dim_products.productId
+
+relationship 94ac9d42-a2df-6f85-f896-2898aa936607
+	relyOnReferentialIntegrity
+	fromColumn: fact_orders.customerid
+	toColumn: dim_customers.customerId
+
+relationship 24c5eeed-0615-502c-7f96-1940212835cc
+	fromColumn: fact_orders.orderId
+	toColumn: dim_events.orderID
+

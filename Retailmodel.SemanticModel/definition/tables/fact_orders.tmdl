@@ -1,0 +1,86 @@
+table fact_orders
+	lineageTag: aa72b8ed-cefb-4bba-8fb3-baed7200a463
+	sourceLineageTag: [dbo].[fact_orders]
+
+	column orderId
+		dataType: string
+		lineageTag: b6fab839-fe95-467c-82ad-48597e7ef4e3
+		sourceLineageTag: orderId
+		summarizeBy: none
+		sourceColumn: orderId
+
+		annotation SummarizationSetBy = Automatic
+
+	column customerid
+		dataType: string
+		lineageTag: c39b9264-8042-419a-a098-7eea8340dd97
+		sourceLineageTag: customerid
+		summarizeBy: none
+		sourceColumn: customerid
+
+		annotation SummarizationSetBy = Automatic
+
+	column productId
+		dataType: string
+		lineageTag: 8bf082fe-e91b-4e28-b9bd-da316dfb9fe4
+		sourceLineageTag: productId
+		summarizeBy: none
+		sourceColumn: productId
+
+		annotation SummarizationSetBy = Automatic
+
+	column merchantId
+		dataType: string
+		lineageTag: 8f723661-3fc1-42b5-96a2-9c31bba7b95d
+		sourceLineageTag: merchantId
+		summarizeBy: none
+		sourceColumn: merchantId
+
+		annotation SummarizationSetBy = Automatic
+
+	column amount
+		dataType: double
+		lineageTag: 41d25ea2-8019-40c7-9e02-eddbff1839af
+		sourceLineageTag: amount
+		summarizeBy: sum
+		sourceColumn: amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column quantity
+		dataType: int64
+		formatString: 0
+		lineageTag: 6fa94fea-2328-4af8-b7b1-a138a61694de
+		sourceLineageTag: quantity
+		summarizeBy: sum
+		sourceColumn: quantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column paymentMethod
+		dataType: string
+		lineageTag: 05439f51-c3c5-418a-9a2e-05888d013709
+		sourceLineageTag: paymentMethod
+		summarizeBy: none
+		sourceColumn: paymentMethod
+
+		annotation SummarizationSetBy = Automatic
+
+	column currency
+		dataType: string
+		lineageTag: 5b826088-c459-47ed-9574-b8a3bc3af700
+		sourceLineageTag: currency
+		summarizeBy: none
+		sourceColumn: currency
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_orders = entity
+		mode: directLake
+		source
+			entityName: fact_orders
+			schemaName: dbo
+			expressionSource: 'DirectLake - RTIDemoLakehouse'
+
