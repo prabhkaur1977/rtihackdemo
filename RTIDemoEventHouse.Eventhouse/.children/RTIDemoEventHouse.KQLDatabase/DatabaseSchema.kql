@@ -7,6 +7,7 @@
 .create-merge table gold_LostCustomerEvents (eventId:string, customerId:string, status:string, eventTime:datetime, amount:real, quantity:long, productid:string, merchantid:string, customerSatisfaction:string) 
 .create-merge table gold_DeliveredCustomerEvents (eventId:string, customerId:string, status:string, eventTime:datetime, amount:real, quantity:long, productid:string, merchantid:string, customerSatisfaction:string) 
 .create-merge table gold_PaidCustomerEvents (eventId:string, customerId:string, status:string, eventTime:datetime, amount:real, quantity:long, productid:string, merchantid:string, customerSatisfaction:string) 
+.create-merge table gold_CustomerEvents (eventId:string, status:string, eventTime:datetime, orderID:string, customerId:string, productId:string, merchantId:string, customerSatisfaction:string) 
 .create-or-alter function with (skipvalidation = "true") Silver_CustEventsFN() {
     CustomerEvents | 
 project eventId, eventTime = todatetime(eventTime),orderId,status,amount ,quantity,paymentMethod,currency,customerId, 
@@ -30,13 +31,14 @@ productId,merchantId,customerSatisfaction=tostring(customerSatisfaction)
     | where tolower(status) == "delivered"
     | project  eventId,
     customerId,
+    orderId,
     status,
     eventTime,
     amount,
     quantity,
     productId,
     merchantId,
-    customerSatisfaction 
+    customerSatisfaction
 }
 .create-or-alter function with (folder = "update-policy", skipvalidation = "true") fn_gold_paid_events() {
     Silver_CustomerEvents
@@ -51,7 +53,20 @@ productId,merchantId,customerSatisfaction=tostring(customerSatisfaction)
     merchantId,
     customerSatisfaction 
 }
+.create-or-alter function with (folder = "update-policy", skipvalidation = "true") fn_gold_customerevents() {
+     Silver_CustomerEvents
+    | project 
+    eventId,
+    status,
+    eventTime,
+    orderId,
+    customerId, 
+    productId,
+    merchantId,
+    customerSatisfaction
+}
 .alter table Silver_CustomerEvents policy update "[{\"IsEnabled\":true,\"Source\":\"CustomerEvents\",\"Query\":\"Silver_CustEventsFN\",\"IsTransactional\":false,\"PropagateIngestionProperties\":false,\"ManagedIdentity\":null}]"
 .alter table gold_LostCustomerEvents policy update "[{\"IsEnabled\":true,\"Source\":\"Silver_CustomerEvents\",\"Query\":\"fn_gold_lost_events\",\"IsTransactional\":false,\"PropagateIngestionProperties\":false,\"ManagedIdentity\":null}]"
 .alter table gold_DeliveredCustomerEvents policy update "[{\"IsEnabled\":true,\"Source\":\"Silver_CustomerEvents\",\"Query\":\"fn_gold_delivered_events\",\"IsTransactional\":false,\"PropagateIngestionProperties\":false,\"ManagedIdentity\":null}]"
 .alter table gold_PaidCustomerEvents policy update "[{\"IsEnabled\":true,\"Source\":\"Silver_CustomerEvents\",\"Query\":\"fn_gold_paid_events\",\"IsTransactional\":false,\"PropagateIngestionProperties\":false,\"ManagedIdentity\":null}]"
+.alter table gold_CustomerEvents policy update "[{\"IsEnabled\":true,\"Source\":\"Silver_CustomerEvents\",\"Query\":\"fn_gold_customerevents\",\"IsTransactional\":false,\"PropagateIngestionProperties\":false,\"ManagedIdentity\":null}]"
