@@ -1,5 +1,18 @@
 [
   {
+    "name": "gold_CustomerEvents",
+    "path": "/Tables/dbo",
+    "target": {
+      "type": "OneLake",
+      "oneLake": {
+        "path": "Tables/gold_CustomerEvents",
+        "itemId": "9e9aa75f-f43c-b8d6-4619-a3f6bf2130fc",
+        "workspaceId": "00000000-0000-0000-0000-000000000000",
+        "artifactType": "KustoDatabase"
+      }
+    }
+  },
+  {
     "name": "CustomerEvents",
     "path": "/Tables/dbo",
     "target": {
