@@ -9,6 +9,26 @@
   ],
   "destinations": [
     {
+      "id": "0c7075a4-0af0-4164-b636-0ba9675c4599",
+      "name": "a5ThhNC8RJyD5R4aZZbCXu-d27c7415-1f8b-428d-81d2-b18b97ad5bef",
+      "type": "Activator",
+      "properties": {
+        "workspaceId": "00000000-0000-0000-0000-000000000000",
+        "itemId": "97ad5bef-b18b-81d2-428d-1f8bd27c7415",
+        "inputSerialization": {
+          "type": "Json",
+          "properties": {
+            "encoding": "UTF8"
+          }
+        }
+      },
+      "inputNodes": [
+        {
+          "name": "RTIDemoEventStream-stream"
+        }
+      ]
+    },
+    {
       "id": "c0dbfa27-3bbc-4164-a49b-18d0614bf72e",
       "name": "Eventhouse",
       "type": "Eventhouse",
