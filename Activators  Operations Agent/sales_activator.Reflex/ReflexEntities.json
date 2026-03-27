@@ -1,0 +1,31 @@
+[
+  {
+    "uniqueIdentifier": "8ed7afd4-5cbf-40ad-9eb0-b067a983d49a",
+    "payload": {
+      "name": "SalesAnomalities",
+      "parameters": []
+    },
+    "type": "powerAutomateFlowAction-v1"
+  },
+  {
+    "uniqueIdentifier": "3e40fff4-3908-41ff-8ddb-25fcaecc5aa6",
+    "payload": {
+      "name": "EventStream",
+      "metadata": {
+        "eventstreamArtifactId": "c04c52c7-e8ef-4e26-bce7-122541d19c83"
+      }
+    },
+    "type": "eventstreamSource-v1"
+  },
+  {
+    "uniqueIdentifier": "f665a728-ee16-4996-953c-bcb11b8e2ca7",
+    "payload": {
+      "name": "RTIDemoEventStream-stream event",
+      "definition": {
+        "type": "Event",
+        "instance": "{\"templateId\":\"SourceEvent\",\"templateVersion\":\"1.1\",\"steps\":[{\"name\":\"SourceEventStep\",\"id\":\"4970e580-6228-4545-b7c0-1dcbecb67cb4\",\"rows\":[{\"name\":\"SourceSelector\",\"kind\":\"SourceReference\",\"arguments\":[{\"name\":\"entityId\",\"type\":\"string\",\"value\":\"3e40fff4-3908-41ff-8ddb-25fcaecc5aa6\"}]}]}]}"
+      }
+    },
+    "type": "timeSeriesView-v1"
+  }
+]
