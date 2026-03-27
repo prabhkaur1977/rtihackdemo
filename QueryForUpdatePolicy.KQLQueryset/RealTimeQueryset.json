@@ -13,8 +13,20 @@
     "tabs": [
       {
         "id": "32b3f1f4-5662-4e6f-a38f-9d054b54cb38",
-        "content": "https://app.powerbi.com/groups/me/queryworkbenches/querydeeplink?experience=fabric-developer&cluster=https://trd-81qd1fbkan1mukejn5.z6.kusto.fabric.microsoft.com&databaseItemId=bf2130fc-a3f6-4619-b8d6-f43c9e9aa75f&query=H4sIAAAAAAAAA3WRwW7CMBBE7%2F6KlU8gkXwAUk8thxyrcKsq4tobcBVstF5ToZZ%2Fr%2BNQNYnAp2Q82dl5KTWhYgRWHx3C3ndm9xwD%2ByPS5oyOAywEpIP9S2XWgcm6%2FSprgRXHMJGybWuPuDZpKqeHQfdkkKqXiVffcv6nQtZP5E3U87Bk1Ac13gFgMqZWbEOrNFvvbhYQYimEKIeOhadCdYwEbXTZBl%2BWD7BoU2ukJxlP%2FdLFyXdWX%2BQSWrfLQP4ScrmwWIrvHAy17c5IM1756qcv8YmaYQxvTG2Ga0zJzPHMucyBrB5yEFeRTzn0fvyTh84wEBBN07z1HWUVNq7%2Fxsg1MMW8pqx9JI1JkXcByGx6jUiX3nMfYjJd31PML76NK31%2FAgAA\n.create table gold_CustomerEvents (\n    eventId:string,\n    status:string,\n    eventTime:datetime,\n    orderID:string,\n    customerId:string, \n    productId:string,\n    merchantId:string,  \n    customerSatisfaction:string \n\n)\n\n\n.create-or-alter function with (folder=\"update-policy\") fn_gold_customerevents()\n{\n     Silver_CustomerEvents\n    | project \n    eventId,\n    status,\n    eventTime,\n    orderId,\n    customerId, \n    productId,\n    merchantId,\n    customerSatisfaction\n}\n\n\n\n\n\n.alter table gold_CustomerEvents policy update\n```[{\n  \"IsEnabled\": true,\n  \"Source\": \"Silver_CustomerEvents\",\n  \"Query\": \"fn_gold_customerevents\",\n}]```\n\n\n",
+        "content": ".create table gold_CustomerEvents (\n    eventId:string,\n    status:string,\n    eventTime:datetime,\n    orderID:string,\n    customerId:string, \n    productId:string,\n    merchantId:string,  \n    customerSatisfaction:string,\n    eventlogicalkeys:string\n\n\n)\n\n\n.create-or-alter function with (folder=\"update-policy\") fn_gold_customerevents()\n{\n       Silver_CustomerEvents\n    | project \n    eventId,\n    status,\n    eventTime,\n    orderId,\n    customerId, \n    productId,\n    merchantId,\n    customerSatisfaction\n    | extend eventlogicalkeys = strcat(orderId, customerId, productId)\n}\n\n\n\n\n\n.alter table gold_CustomerEvents policy update\n```[{\n  \"IsEnabled\": true,\n  \"Source\": \"Silver_CustomerEvents\",\n  \"Query\": \"fn_gold_customerevents\",\n}]```\n\n\n",
         "title": "Tab",
+        "dataSourceId": "40609178-4e50-45cf-9540-d0621e849a34"
+      },
+      {
+        "id": "09cfe9a1-bf36-4939-9ba4-f57b01167477",
+        "content": "   Silver_CustomerEvents\n    | project \n    eventId,\n    status,\n    eventTime,\n    orderId,\n    customerId, \n    productId,\n    merchantId,\n    customerSatisfaction\n    | extend eventlogicalkeys = strcat(orderId, customerId, productId)",
+        "title": "",
+        "dataSourceId": "40609178-4e50-45cf-9540-d0621e849a34"
+      },
+      {
+        "id": "20ac38d1-c116-4f04-8b20-d1cb8d8707b9",
+        "content": "",
+        "title": "",
         "dataSourceId": "40609178-4e50-45cf-9540-d0621e849a34"
       }
     ]

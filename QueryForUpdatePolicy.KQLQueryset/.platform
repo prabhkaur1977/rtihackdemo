@@ -3,7 +3,7 @@
   "metadata": {
     "type": "KQLQueryset",
     "displayName": "QueryForUpdatePolicy",
-    "description": "KustoQueryWorkbench_1"
+    "description": "QueryForUpdatePolicy"
   },
   "config": {
     "version": "2.0",

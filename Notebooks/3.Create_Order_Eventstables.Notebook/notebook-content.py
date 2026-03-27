@@ -50,14 +50,22 @@
 # CELL ********************
 
 # MAGIC %%sql
-# MAGIC CREATE TABLE dbo.dim_events
-# MAGIC USING DELTA
-# MAGIC AS
-# MAGIC SELECT
-# MAGIC   eventID,
-# MAGIC   orderID
-# MAGIC 
-# MAGIC FROM dbo.CustomerEvents;
+# MAGIC  CREATE TABLE dbo.dim_events
+# MAGIC  USING DELTA
+# MAGIC  AS
+# MAGIC SELECT 
+# MAGIC   monotonically_increasing_id() as id,  -- auto-generated unique (but not always strictly consecutive) bigint
+# MAGIC   orderID,
+# MAGIC   Customerid,
+# MAGIC   productid,
+# MAGIC   concat(orderID,  Customerid, productid) as eventlogicalkeys
+# MAGIC FROM (
+# MAGIC   SELECT DISTINCT
+# MAGIC     orderID,
+# MAGIC     Customerid,
+# MAGIC     productid
+# MAGIC   FROM dbo.CustomerEvents
+# MAGIC ) t
 
 # METADATA ********************
 
