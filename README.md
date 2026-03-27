@@ -23,8 +23,9 @@ The flow is: **simulate retail order/customer events â†’ ingest in Eventhouse â†
 - **RTIDemoEventHouse**  
   Eventhouse definition used to ingest and query streaming events.
 
-- **Create Update Policy**
+- **Create Update Policy with QueryForUpdatePolicy.KQLQuerySet**
   Create update policy to load data from Bronze to Silver to Gold Layer.
+  
   
 
   <img width="818" height="251" alt="image" src="https://github.com/user-attachments/assets/57aa01a2-9d5c-4205-b45b-28d6c6f8bf44" />
