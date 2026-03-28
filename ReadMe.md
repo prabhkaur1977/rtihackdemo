@@ -1,4 +1,4 @@
-# RTI Demo — Retail Orders Real-Time Intelligence
+# RTI+ IQ Demo — Retail Orders Real-Time Intelligence
 
 Demo assets for a retail orders Real-Time Intelligence (RTI) scenario in Microsoft Fabric. This solution demonstrates end-to-end streaming analytics with event ingestion, real-time processing, data curation, automated actions, and AI-powered monitoring.
 
